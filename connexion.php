@@ -1,4 +1,4 @@
-<?php $host = 'eu-cdbr-wes-02.cleardb.net';
+<?php $host = 'eu-cdbr-west-02.cleardb.net';
 $dbname = 'heroku_495fd814c1f433b';
 $username = 'b56a58b253f64f';
 $password = '37327fda';
