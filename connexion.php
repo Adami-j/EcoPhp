@@ -13,4 +13,12 @@ try {
 
     die("Impossible de se connecter à la base de données $dbname :" . $e->getMessage());
 
-}?>
+}
+
+$sql = 'SELECT idUser, nom, prenom, montantBK FROM user WHERE idUser=1;';
+$response = $conn->query($sql);
+$output = $response->fetch();
+
+
+
+?>
