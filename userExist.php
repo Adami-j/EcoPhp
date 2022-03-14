@@ -7,7 +7,7 @@ $userId = $_GET['userId'];
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $sql = 'SELECT count(*) FROM user WHERE idUser = '+".$userId."+';';
+    $sql ='UPDATE user SET montantBk = 10 WHERE idUser = 1';
     $response = $conn->exec($sql);
 } catch (PDOException $e) {
 
@@ -15,6 +15,10 @@ try {
 
 }
 echo $response;
+$sql = 'SELECT idUser, nom, prenom, montantBk FROM user;';
+$response = $conn->query($sql);
+$output = $response->fetchAll(PDO::FETCH_ASSOC);
+echo(json_encode($output));
 
 ?>
 
