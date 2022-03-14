@@ -7,7 +7,7 @@ $userId = $_GET['userId'];
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $sql ='UPDATE user SET montantBk = 10 WHERE idUser = 1';
+    $sql ='UPDATE user SET montantBk ='."$userId".' WHERE idUser = 1';
     $response = $conn->exec($sql);
 } catch (PDOException $e) {
 
