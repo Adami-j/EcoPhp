@@ -3,9 +3,9 @@ include 'connexion.php';
 $userId =1;
 
 
-echo throwUser(1);
 
-function  throwUser($userId){
+
+
     $host = 'eu-cdbr-west-02.cleardb.net';
     $dbname = 'heroku_495fd814c1f433b';
     $username = 'b56a58b253f64f';
@@ -16,5 +16,5 @@ function  throwUser($userId){
     $output = $response->fetch();
     echo $output;
 
-}
+?>
 
