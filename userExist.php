@@ -8,14 +8,13 @@ $userId = $_GET['userId'];
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $sql = 'SELECT count(*) FROM user WHERE idUser = '+".$userId."+';';
-    $response = $conn->query($sql);
-    $output = $response->fetchAll(PDO::FETCH_ASSOC);
+    $response = $conn->exec($sql);
 } catch (PDOException $e) {
 
     die("Impossible de se connecter à la base de données $dbname :" . $e->getMessage());
 
 }
-echo(json_encode($output));
+echo $response;
 
 ?>
 
