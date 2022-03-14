@@ -1,10 +1,16 @@
-<?php
-try {
-    // connection to the database.
-    $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-    $bdd = new PDO('mysql:host=eu-cbr-west-02.cleardb.net;dbname=heroku_495fd814c1f433b', 'b56a58b253f64f', '37327fda', $pdo_options);
+<?php $host = 'eu-cdbr-west-02.cleardb.net';
+$dbname = 'heroku_495fd814c1f433b';
+$username = 'b56a58b253f64f';
+$password = '37327fda';
 
-    } catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
-?>
+try {
+
+$conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+echo "Connecté à $dbname sur $host avec succès.";
+
+} catch (PDOException $e) {
+
+die("Impossible de se connecter à la base de données $dbname :" . $e->getMessage());
+
+}?>
