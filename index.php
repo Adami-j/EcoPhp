@@ -10,7 +10,7 @@
 <body>
 bonjour à tous tétatousse
 <?php echo "cococ";
-require 'connexion.php';?>
+require 'connexion.php'; ?>
 
 
 </body>
