@@ -4,8 +4,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <?php ?>
+    <title>Yellow</title>
+
 </head>
 <body>
 bonjour à tous tétatousse
