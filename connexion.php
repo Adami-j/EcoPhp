@@ -5,13 +5,14 @@ $username = 'b56a58b253f64f';
 $password = '37327fda';
 
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-
-
-
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);$sql = 'SELECT idUser, nom, prenom, montantBk FROM user;';
+    $response = $conn->query($sql);
+    $output = $response->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
 
     die("Impossible de se connecter à la base de données $dbname :" . $e->getMessage());
 
 }
+echo(json_encode($output));
+
 ?>
