@@ -1,5 +1,5 @@
 
-<?php require connexion.php?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
