@@ -14,11 +14,7 @@ try {
     die("Impossible de se connecter à la base de données $dbname :" . $e->getMessage());
 
 }
-echo $response;
-$sql = 'SELECT idUser, nom, prenom, montantBk FROM user;';
-$response = $conn->query($sql);
-$output = $response->fetchAll(PDO::FETCH_ASSOC);
-echo(json_encode($output));
+echo "ok";
 
 ?>
 
