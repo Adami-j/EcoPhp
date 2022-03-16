@@ -39,21 +39,18 @@ switch ($http_method) {
 
     case "POST":
 
-        if(!empty($_GET['money']) and !empty($_GET['idUser'])){
-            $valueMoney = $_GET['money'];
-            $idUser = $_GET['idUser'];
-        }
-        $reqSql = "select idUser, nom, montantBk, prenom from user where idUser="."$idUser;";
+
+        $reqSql = "select idUser, nom, montantBk, prenom from user where idUser=1;";
         $execution =$conn->query($reqSql);
         $fetching = $execution->fetch();
 
-        if($valueMoney<0){
-            $valueFinal = $fetching['montantBk']-$valueMoney;
+        if(-10000<0){
+            $valueFinal = $fetching['montantBk']-10000;
         }else{
-            $valueFinal = $fetching['montantBk']+$valueMoney;
+            $valueFinal = $fetching['montantBk']+10000;
         }
 
-        $reqSql = "UPDATE user SET montantBk ="."$valueMoney"."WHERE idUser = "."$idUser";
+        $reqSql = "UPDATE user SET montantBk ="."$valueFinal"."WHERE idUser =1;";
         $execution =$conn->exec($reqSql);
        deliver_responsePost(200,"bien modifié");
 
