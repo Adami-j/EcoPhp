@@ -32,7 +32,7 @@ switch ($http_method) {
         $execution =$conn->query($reqSql);
         $fetching = $execution->fetch();
         /// Envoi de la réponse au Client
-        deliver_response(200, "Votre message", $fetching);
+        deliver_response(200, "Votre message", $fetching['idUser']);
 
         break;
 }
