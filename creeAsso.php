@@ -33,7 +33,7 @@ switch ($http_method) {
 
 
         /// Envoi de la réponse au Client
-        deliver_response($reqA['idUser'], "Votre message", $matchingData);
+        deliver_response(1, "Votre message", $matchingData);
         break;
 }
 
