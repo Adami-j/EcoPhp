@@ -38,13 +38,14 @@ switch ($http_method) {
         break;
 
     case "POST":
-        $reqSql = "select idUser, nom, montantBk, prenom from user where "."$matchingData =1;";
-        $execution =$conn->query($reqSql);
-        $fetching = $execution->fetch();
+
         if(!empty($_GET['money']) and !empty($_GET['idUser'])){
             $valueMoney = $_GET['money'];
             $idUser = $_GET['idUser'];
         }
+        $reqSql = "select idUser, nom, montantBk, prenom from user where idUser="."$idUser;";
+        $execution =$conn->query($reqSql);
+        $fetching = $execution->fetch();
 
         if($valueMoney<0){
             $valueFinal = $fetching['montantBk']-$valueMoney;
