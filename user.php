@@ -9,7 +9,7 @@ $password = '37327fda';
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $critere = "Jean";
-    $sql = 'SELECT * FROM user WHERE id=$critere or nom = $critere or prenom = $critere or montantBK = $critere';
+    $sql = 'SELECT * FROM user WHERE idUser=$critere or nom = $critere or prenom = $critere or montantBK = $critere';
     $response = $conn->query($sql);
     $output = $response->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {

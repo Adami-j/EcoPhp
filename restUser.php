@@ -26,7 +26,7 @@ switch ($http_method){
         if (!empty($_GET['mon_critere'])){
             /// Traitement
             $critere = $_GET['mon_critere'];
-            $donnees=$conn->query("SELECT * FROM user WHERE id=$critere or nom = $critere or prenom = $critere or montantBK = $critere");
+            $donnees=$conn->query("SELECT * FROM user WHERE idUser=$critere or nom = $critere or prenom = $critere or montantBK = $critere");
             while($exec = $donnees->fetch() ) {
                 $result[] = $exec;
             }
@@ -74,11 +74,11 @@ switch ($http_method){
         if (!empty($_GET['mon_id'])){
             /// Traitement
             $id = $_GET['mon_id'];
-            $sql="SELECT COUNT(*) as q FROM user WHERE id='$id';";
+            $sql="SELECT COUNT(*) as q FROM user WHERE idUser='$id';";
             $res=$conn->query($sql);
             $resu=$res->fetch();
             if($resu['q']==1){
-                $req = "DELETE FROM user WHERE id ='$id'";
+                $req = "DELETE FROM user WHERE idUser ='$id'";
                 $conn->exec($req);
             }
         }
