@@ -34,7 +34,7 @@ switch ($http_method) {
 $req = "select * from user;";
 $reqE = $conn->exec($req);
 $reqA = $reqE->fetch();
-echo json_encode($reqA);
+echo $reqA;
 
 
 
