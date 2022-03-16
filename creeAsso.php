@@ -45,11 +45,14 @@ function deliver_response( $data){
     header("HTTP/1.1 ");
 
     /// Paramétrage de la réponse retournée
-
+    $res['idUser']= $data['idUser'];
+    $res['nom']= $data['nom'];
+    $res['prenom']= $data['prenom'];
+    $res['montantBk']= $data['montantBk'];
 
 
     /// Mapping de la réponse au format JSON
-    $json_response = json_encode($data);
+    $json_response = json_encode($res);
     echo $json_response;
 
 }
