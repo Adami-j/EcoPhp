@@ -4,7 +4,7 @@ include "connexion.php";
 header("Content-Type:application/json");
 $host = 'eu-cdbr-west-02.cleardb.net';
 $dbname = 'heroku_495fd814c1f433b';
-$username = 'b56a58b253f64f';
+$username = 'b56a58b253f64';
 $password = '37327fda';
 
 try {
