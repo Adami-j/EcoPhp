@@ -50,7 +50,7 @@ switch ($http_method) {
             $valueFinal = $fetching['montantBk']+10000;
         }
 
-        $reqSql = "UPDATE user SET montantBk ="."$valueFinal"."WHERE idUser =1;";
+        $reqSql = "UPDATE user SET montantBk = 1 WHERE idUser =1;";
         $execution =$conn->exec($reqSql);
        deliver_responsePost(200,"bien modifié");
 
