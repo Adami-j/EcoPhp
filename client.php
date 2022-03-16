@@ -8,6 +8,7 @@ $result = file_get_contents('https://ecobackk.herokuapp.com/restAsso.php',
 
 ////////////////// Cas des méthodes POST et PUT //////////////////
 /// Déclaration des données à envoyer au Serveur
+
 $data = array("key 1" => "value 1", "key 2" => "value 2");
 $data_string = json_encode($data);
 

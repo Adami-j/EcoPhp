@@ -1,6 +1,5 @@
 <?php
 
-
 /// Paramétrage de l'entête HTTP (pour la réponse au Client)
 header("Content-Type:application/json");
 
@@ -16,6 +15,7 @@ switch ($http_method){
         }
 
         /// Envoi de la réponse au Client
+        $matchingData="cc";
         deliver_response(200, "Votre message", $matchingData);
         break;
     /// Cas de la méthode POST
