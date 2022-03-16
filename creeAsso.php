@@ -54,6 +54,7 @@ switch ($http_method) {
 
         $reqSql = "UPDATE user SET montantBk ="."$valueMoney"."WHERE idUser = "."$idUser";
         $execution =$conn->exec($reqSql);
+       deliver_responsePost(200,"bien modifié");
 
 }
 
