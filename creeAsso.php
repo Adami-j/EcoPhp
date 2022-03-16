@@ -30,24 +30,19 @@ switch ($http_method) {
         $req = "select * from user;";
         $reqE = $conn->exec($req);
         $reqA = $reqE->fetch();
-
-
-        /// Envoi de la réponse au Client
-        deliver_response(1, "Votre message", $matchingData);
+        deliver_response($reqA);
         break;
 }
 
 
 
 
-function deliver_response($status, $status_message, $data){
+function deliver_response($data){
     /// Paramétrage de l'entête HTTP, suite
-    header("HTTP/1.1 $status $status_message");
+    header("HTTP/1.1");
 
     /// Paramétrage de la réponse retournée
-    $response['status'] = $status;
-    $response['status_message'] = $status_message;
-    $response['data'] = $data;
+    $response['id']= $data['idUser'];
 
     /// Mapping de la réponse au format JSON
     $json_response = json_encode($response);
