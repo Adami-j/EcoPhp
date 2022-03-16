@@ -26,7 +26,7 @@ echo '<pre>' . htmlspecialchars($result) . '</pre>';
     <title>Title</title>
 
     <form>
-        <input method="GET" id="cc" value="Bonjour" type="btn">
+        <input method="GET" id="cc" value="Bonjour" type="submit">
     </form>
 </head>
 <body>
