@@ -25,13 +25,13 @@ switch ($http_method) {
         /// Récupération des critères de recherche envoyés par le Client
         if (!empty($_GET['mon_critere'])) {
             /// Traitement
-            $req = "select * from user;";
-            $reqE = $conn->exec($req);
-            $reqA = $reqE->fetch();
-            echo json_encode($reqA);
+
 
         }
-
+        $req = "select * from user;";
+        $reqE = $conn->exec($req);
+        $reqA = $reqE->fetch();
+        echo json_encode($reqA);
         /// Envoi de la réponse au Client
         deliver_response(200, "Votre message", $matchingData);
         break;
