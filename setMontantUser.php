@@ -26,12 +26,15 @@ switch ($http_method) {
         $execution =$conn->query($reqSql);
         $fetching = $execution->fetch();
 
-
+        if(isset($_GET['money'])) {
             $money = $_GET['money'];
-            $reqSql = "UPDATE user SET montantBk = ".$money.";";
-            $execution =$conn->exec($reqSql);
+            $reqSql = "UPDATE user SET montantBk = " . $money . ";";
+            $execution = $conn->exec($reqSql);
 
-        deliver_responsePost(200,"bien modifié");
+            deliver_responsePost(200, "bien modifié");
+        }{
+        deliver_responsePost(401, "Crash");
+    }
         break;
 
 }
