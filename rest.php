@@ -16,7 +16,8 @@ switch ($http_method){
         }
 
         /// Envoi de la réponse au Client
-        deliver_response(200, "Votre message", $matchingData);
+        $matchingData ="coucou";
+        deliver_response(200, "Votre message", "$matchingData");
         break;
     /// Cas de la méthode POST
     case "POST" :

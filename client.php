@@ -1,7 +1,7 @@
 <?php
 
 ////////////////// Cas des méthodes GET et DELETE //////////////////
-$result = file_get_contents('URL_de_la_ressource',
+$result = file_get_contents('',
     false,
     stream_context_create(array('http' => array('method' => 'GET'))) // ou DELETE
 );
