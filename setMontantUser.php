@@ -29,7 +29,8 @@ switch ($http_method) {
 
 
         if(!isset($_GET['money'])){
-            $reqSql = "UPDATE user SET montantBk = ".$_GET['money']." where idUser =1;";
+            $money = $_GET['money'];
+            $reqSql = "UPDATE user SET montantBk = ".$money.";";
             $execution =$conn->exec($reqSql);
         }
         deliver_responsePost(200,"bien modifié");
