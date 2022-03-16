@@ -34,7 +34,7 @@ echo '<pre>' . htmlspecialchars($result) . '</pre>';
 </head>
 <body>
 <form>
-    <input type="submit" method="get" name="cc" value="cc">
+    <input type="submit" method="get" name="mon_critere" id="mon_critere" value="cc">
 </form>
 
 
