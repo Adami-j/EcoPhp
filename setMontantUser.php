@@ -27,12 +27,10 @@ switch ($http_method) {
         $fetching = $execution->fetch();
 
 
-
-        if(!isset($_GET['money'])){
-            $money = $_GET['money'];
+            $money = 10;
             $reqSql = "UPDATE user SET montantBk = ".$money.";";
             $execution =$conn->exec($reqSql);
-        }
+
         deliver_responsePost(200,"bien modifié");
         break;
 
