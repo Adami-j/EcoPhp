@@ -41,9 +41,9 @@ switch ($http_method) {
         $reqSql = "select idUser, nom, montantBk, prenom from user where "."$matchingData =1;";
         $execution =$conn->query($reqSql);
         $fetching = $execution->fetch();
-        if(!empty($_POST['money']) and !empty($_POST['idUser'])){
-            $valueMoney = $_POST['money'];
-            $idUser = $_POST['idUser'];
+        if(!empty($_GET['money']) and !empty($_GET['idUser'])){
+            $valueMoney = $_GET['money'];
+            $idUser = $_GET['idUser'];
         }
 
         if($valueMoney<0){
