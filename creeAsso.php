@@ -27,14 +27,16 @@ switch ($http_method) {
             /// Traitement
         }
 
+        $req = "select * from user;";
+        $reqE = $conn->exec($req);
+        $reqA = $reqE->fetch();
+
+
         /// Envoi de la réponse au Client
-        deliver_response(200, "Votre message", $matchingData);
+        deliver_response($reqA['idUser'], "Votre message", $matchingData);
         break;
 }
-$req = "select * from user;";
-$reqE = $conn->exec($req);
-$reqA = $reqE->fetch();
-echo $reqA;
+
 
 
 
