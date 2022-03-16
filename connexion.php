@@ -12,6 +12,5 @@ try {
     die("Impossible de se connecter à la base de données $dbname :" . $e->getMessage());
 
 }
-$conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
 ?>

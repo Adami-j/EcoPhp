@@ -1,6 +1,17 @@
 <?php
 /// Librairies éventuelles (pour la connexion à la BDD, etc.)
-include('connexion.php');
+$host = 'eu-cdbr-west-02.cleardb.net';
+$dbname = 'heroku_495fd814c1f433b';
+$username = 'b56a58b253f64f';
+$password = '37327fda';
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+} catch (PDOException $e) {
+
+    die("Impossible de se connecter à la base de données $dbname :" . $e->getMessage());
+
+}
 
 /// Paramétrage de l'entête HTTP (pour la réponse au Client)
 header("Content-Type:application/json");
@@ -13,6 +24,12 @@ switch ($http_method){
         /// Récupération des critères de recherche envoyés par le Client
         if (!empty($_GET['mon_critere'])){
             /// Traitement
+             $req = "SELECT * from assos";
+             $reqE= $conn->exec($req);
+             $fet = $reqE->fetch();
+
+
+
         }
 
         /// Envoi de la réponse au Client
@@ -52,14 +69,18 @@ switch ($http_method){
 }
 
 /// Envoi de la réponse au Client
-function deliver_response($status, $status_message, $data){
+function deliver_response($id, $montantBk, $nom){
     /// Paramétrage de l'entête HTTP, suite
     header("HTTP/1.1 $status $status_message");
 
     /// Paramétrage de la réponse retournée
-    $response['status'] = $status;
-    $response['status_message'] = $status_message;
-    $response['data'] = $data;
+    $response['id'] = $id;
+    $response['montantBk'] = $montantBk;
+    $response['nom'] = $nom;
+    $response['desc'] = $desc;
+    $response['lat'] = $lat;
+    $response['long'] = $long;
+
 
     /// Mapping de la réponse au format JSON
     $json_response = json_encode($response);
