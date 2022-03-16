@@ -4,7 +4,7 @@ include "connexion.php";
 header("Content-Type:application/json");
 $host = 'eu-cdbr-west-02.cleardb.net';
 $dbname = 'heroku_495fd814c1f433b';
-$username = 'b56a58b253f64f';
+$username = 'b56a58b253f64';
 $password = '37327fda';
 
 try {
@@ -27,26 +27,28 @@ switch ($http_method) {
             /// Traitement
         }
 
-        $req = "select * from user;";
-        $reqE = $conn->exec($req);
-        $reqA = $reqE->fetch();
-        deliver_response($reqA);
+        /// Envoi de la réponse au Client
+        deliver_response(200, "Votre message", $matchingData);
+
         break;
 }
 
 
 
 
-function deliver_response($data){
+function deliver_response($status, $status_message, $data){
     /// Paramétrage de l'entête HTTP, suite
-    header("HTTP/1.1");
+    header("HTTP/1.1 $status $status_message");
 
     /// Paramétrage de la réponse retournée
-    $response['id']= $data['idUser'];
+    $response['status'] = $status;
+    $response['status_message'] = $status_message;
+    $response['data'] = $data;
 
     /// Mapping de la réponse au format JSON
     $json_response = json_encode($response);
     echo $json_response;
+
 }
 
 
