@@ -27,6 +27,7 @@ switch ($http_method){
              $req = "SELECT * from assos";
              $reqE= $conn->exec($req);
              $fet = $reqE->fetch();
+             deliver_response($fet['id'],$fet['montantBk'],$fet['nom'],$fet['description'],$fet['latitude'],$fet['longitude']);
 
 
 
@@ -69,7 +70,7 @@ switch ($http_method){
 }
 
 /// Envoi de la réponse au Client
-function deliver_response($id, $montantBk, $nom){
+function deliver_response($id, $montantBk, $nom,$desc,$lat,$long){
     /// Paramétrage de l'entête HTTP, suite
     header("HTTP/1.1 $status $status_message");
 
