@@ -42,7 +42,7 @@ function deliver_response($data){
     header("HTTP/1.1");
 
     /// Paramétrage de la réponse retournée
-    $response['id']= $data['idUser'];
+    $response['id']= 3;
 
     /// Mapping de la réponse au format JSON
     $json_response = json_encode($response);
