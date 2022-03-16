@@ -40,17 +40,16 @@ switch ($http_method) {
 
 
 
-function deliver_response($status, $status_message, $data){
+function deliver_response( $data){
     /// Paramétrage de l'entête HTTP, suite
-    header("HTTP/1.1 $status $status_message");
+    header("HTTP/1.1 ");
 
     /// Paramétrage de la réponse retournée
-    $response['status'] = $status;
-    $response['status_message'] = $status_message;
-    $response['data'] = json_encode($data);
+
+
 
     /// Mapping de la réponse au format JSON
-    $json_response = json_encode($response);
+    $json_response = json_encode($data);
     echo $json_response;
 
 }
