@@ -1,5 +1,5 @@
 <?php
-include "connexion.php";
+
 
 header("Content-Type:application/json");
 $host = 'eu-cdbr-west-02.cleardb.net';
@@ -34,6 +34,15 @@ switch ($http_method) {
         deliver_responseGet($fetching);
 
         break;
+    case "PUT":
+        if (!empty($_GET['id']) and !empty($_GET['money'])) {
+            /// Traitement
+            $matchingData = $_GET['id'];
+            $matchingMoney = $_GET['money'];
+            $reqSql = "Update assos set montantBk = $matchingMoney WHERE id = $matchingData";
+            $execution=$conn->exec($reqSql);
+            deliver_responsePost(200, "ça marche!!!!!!");
+        }
 }
 
 
@@ -70,8 +79,4 @@ function deliver_responsePost($code, $message){
     echo $json_response;
 
 }
-
-
-
-
 ?>
