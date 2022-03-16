@@ -4,9 +4,12 @@
 $result = file_get_contents('https://ecobackk.herokuapp.com/assos.php',
     false,
     stream_context_create(array('http' => array('method' => 'GET')))
+
 // ou DELETE
 
 );
+
+echo $result;
 
 
 ////////////////// Cas des méthodes POST et PUT //////////////////
