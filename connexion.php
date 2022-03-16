@@ -12,5 +12,6 @@ try {
     die("Impossible de se connecter à la base de données $dbname :" . $e->getMessage());
 
 }
+return conn;
 
 ?>

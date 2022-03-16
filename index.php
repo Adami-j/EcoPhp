@@ -4,14 +4,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Yellow</title>
-
+    <title>API ECOBACK</title>
+    Liens pour utiliser l'api
 </head>
 <body>
-bonjour à tous tétatousse
-<?php echo "cococ";
-require 'connexion.php'; ?>
-
 
 </body>
 </html>
