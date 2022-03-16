@@ -26,4 +26,17 @@ $result = file_get_contents(
 echo '<pre>' . htmlspecialchars($result) . '</pre>';
 
 ?>
-<form><input type="submit" method="get" name="cc" value="cc"></form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <input type="submit" method="get" name="cc" value="cc">
+</form>
+
+
+</body>
+</html>
