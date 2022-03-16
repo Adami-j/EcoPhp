@@ -17,7 +17,7 @@ try {
     die("Impossible de se connecter à la base de données $dbname :" . $e->getMessage());
 
 }
-echo(json_encode($output));
+echo $output;
 
 
 ?>
