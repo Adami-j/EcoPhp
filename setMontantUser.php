@@ -21,7 +21,7 @@ switch ($http_method) {
 
 
     /// Cas de la méthode GET
-    case "GET" :
+    case "PUT" :
         $reqSql = "select idUser, nom, montantBk, prenom from user where idUser=1;";
         $execution =$conn->query($reqSql);
         $fetching = $execution->fetch();
