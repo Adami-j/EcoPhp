@@ -25,11 +25,14 @@ switch ($http_method) {
         /// Récupération des critères de recherche envoyés par le Client
         if (!empty($_GET['mon_critere'])) {
             /// Traitement
-            $matchingData = $_GET['mon_critere'];
+            $matchingData = $_GET['idUser'];
         }
 
+        $reqSql = "select idUser, nom, montantBk from user where "."$matchingData =1;";
+        $execution =$conn->query($reqSql);
+        $fetching = $execution->fetch();
         /// Envoi de la réponse au Client
-        deliver_response(200, "Votre message", $matchingData);
+        deliver_response(200, "Votre message", $fetching);
 
         break;
 }
