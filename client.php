@@ -26,3 +26,4 @@ $result = file_get_contents(
 echo '<pre>' . htmlspecialchars($result) . '</pre>';
 
 ?>
+<form><input type="submit" method="get" name="cc" value="cc"></form>
