@@ -28,19 +28,39 @@ switch ($http_method) {
             $matchingData = $_GET['idUser'];
         }
 
-        $reqSql = "select idUser, nom, montantBk from user where "."$matchingData =1;";
+
+        $reqSql = "select idUser, nom, montantBk, prenom from user where "."$matchingData =1;";
         $execution =$conn->query($reqSql);
         $fetching = $execution->fetch();
         /// Envoi de la réponse au Client
-        deliver_response($fetching);
+        deliver_responseGet($fetching);
 
         break;
+
+    case "POST":
+        $reqSql = "select idUser, nom, montantBk, prenom from user where "."$matchingData =1;";
+        $execution =$conn->query($reqSql);
+        $fetching = $execution->fetch();
+        if(!empty($_POST['money']) and !empty($_POST['idUser'])){
+            $valueMoney = $_POST['money'];
+            $idUser = $_POST['idUser'];
+        }
+
+        if($valueMoney<0){
+            $valueFinal = $fetching['montantBk']-$valueMoney;
+        }else{
+            $valueFinal = $fetching['montantBk']+$valueMoney;
+        }
+
+        $reqSql = "UPDATE user SET montantBk ="."$valueMoney"."WHERE idUser = "."$idUser";
+        $execution =$conn->exec($reqSql);
+
 }
 
 
 
 
-function deliver_response( $data){
+function deliver_responseGet( $data){
     /// Paramétrage de l'entête HTTP, suite
     header("HTTP/1.1 ");
 
@@ -56,6 +76,23 @@ function deliver_response( $data){
     echo $json_response;
 
 }
+
+function deliver_responsePost($code, $message){
+    /// Paramétrage de l'entête HTTP, suite
+    header("HTTP/1.1 ");
+
+    /// Paramétrage de la réponse retournée
+    $res['code']= $code;
+    $res['message']=$message;
+
+
+    /// Mapping de la réponse au format JSON
+    $json_response = json_encode($res);
+    echo $json_response;
+
+}
+
+
 
 
 ?>
