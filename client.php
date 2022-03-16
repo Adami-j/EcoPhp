@@ -9,7 +9,7 @@ $result = file_get_contents('https://ecobackk.herokuapp.com/assos.php',
 
 );
 
-echo $result;
+print_r($result);
 
 
 ////////////////// Cas des méthodes POST et PUT //////////////////
@@ -18,3 +18,18 @@ echo $result;
 echo '<pre>' . htmlspecialchars($result) . '</pre>';
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <form>
+        <input method="GET" id="cc" value="Bonjour" type="btn">
+    </form>
+</head>
+<body>
+
+</body>
+</html>

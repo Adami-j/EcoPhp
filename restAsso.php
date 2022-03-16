@@ -72,7 +72,7 @@ switch ($http_method){
 /// Envoi de la réponse au Client
 function deliver_response($id, $montantBk, $nom,$desc,$lat,$long){
     /// Paramétrage de l'entête HTTP, suite
-    header("HTTP/1.1 $status $status_message");
+    header("HTTP/1.1 $id $montantBk $nom $desc $lat ");
 
     /// Paramétrage de la réponse retournée
     $response['id'] = $id;
