@@ -27,7 +27,7 @@ switch ($http_method) {
         $fetching = $execution->fetch();
 
 
-            $money = 10;
+            $money = $_GET['money'];
             $reqSql = "UPDATE user SET montantBk = ".$money.";";
             $execution =$conn->exec($reqSql);
 
