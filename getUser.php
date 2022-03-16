@@ -27,8 +27,6 @@ switch ($http_method) {
             /// Traitement
             $matchingData = $_GET['idUser'];
         }
-
-
         $reqSql = "select idUser, nom, montantBk, prenom from user where "."$matchingData =1;";
         $execution =$conn->query($reqSql);
         $fetching = $execution->fetch();
@@ -36,24 +34,6 @@ switch ($http_method) {
         deliver_responseGet($fetching);
 
         break;
-
-    case "POST":
-
-
-        $reqSql = "select idUser, nom, montantBk, prenom from user where idUser=1;";
-        $execution =$conn->query($reqSql);
-        $fetching = $execution->fetch();
-
-        if(-10000<0){
-            $valueFinal = $fetching['montantBk']-10000;
-        }else{
-            $valueFinal = $fetching['montantBk']+10000;
-        }
-
-        $reqSql = "UPDATE user SET montantBk = 1 WHERE idUser =1;";
-        $execution =$conn->exec($reqSql);
-       deliver_responsePost(200,"bien modifié");
-
 }
 
 
