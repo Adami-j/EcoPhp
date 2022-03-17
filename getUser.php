@@ -22,9 +22,7 @@ $http_method = $_SERVER['REQUEST_METHOD'];
 switch ($http_method) {
     /// Cas de la méthode GET
     case "GET" :
-        /// Récupération des critères de recherche envoyés par le Client
-        if (!empty($_GET['mon_critere'])) {
-            /// Traitement
+        if(!empty($_GET['idUser'])) {
             $matchingData = $_GET['idUser'];
         }
         $reqSql = "select idUser, nom, montantBk, prenom from user where "."$matchingData =1;";
