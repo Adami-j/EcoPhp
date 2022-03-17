@@ -4,7 +4,7 @@
 $server = "localhost" ;
 $login = "root";
 $mdp = "root";
-$db = "xavier";
+$db = "contact";
 ///Connexion au serveur MySQL
 try {
     $linkpdo = new PDO("mysql:host=$server;dbname=$db", $login, $mdp);
