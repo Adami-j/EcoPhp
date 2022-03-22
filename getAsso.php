@@ -17,7 +17,6 @@ try {
 }
 
 
-
 $http_method = $_SERVER['REQUEST_METHOD'];
 switch ($http_method) {
     /// Cas de la méthode GET
@@ -27,7 +26,7 @@ switch ($http_method) {
             /// Traitement
             $matchingData = $_GET['id'];
         }
-        $reqSql = "select id, nom, montantBk, description from assos where "."$matchingData =1;";
+        $reqSql = "select id, nom, montantBk, description from assos where "."$matchingData =id;";
         $execution =$conn->query($reqSql);
         $fetching = $execution->fetch();
         /// Envoi de la réponse au Client
